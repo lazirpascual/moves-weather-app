@@ -19,3 +19,9 @@ body {
   background-size: cover;
   color: whitesmoke;
 }
+
+.back-button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
