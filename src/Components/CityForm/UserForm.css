@@ -1,0 +1,25 @@
+.start-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 15em;
+  height: 9em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15%;
+  background-color: rgba(45, 53, 80, 0.795);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-size: 40px;
+  font-family: fantasy;
+  text-align: center;
+}
+
+.text-color {
+  color: #5cb6ff;
+}
+
+.text-label {
+  color: aliceblue !important;
+}
