@@ -15,8 +15,6 @@ interface CurrentWeather {
   pop: number;
   city: string;
   country: string;
-  lat?: string;
-  lon?: string;
 }
 
 export { CurrentWeather };
