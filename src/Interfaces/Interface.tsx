@@ -1,22 +1,22 @@
 interface CurrentWeather {
-  desc: string;
-  city: string;
-  country: string;
-  humidity: number;
-  pressure: number;
-  feels_like: number;
-  wind_speed: number;
-  icon: string;
-  lat?: string;
-  lon?: string;
-  dt: number;
   current_temp: number;
   min_temp: number;
   max_temp: number;
+  feels_like: number;
+  dt: number;
+  desc: string;
+  humidity: number;
+  pressure: number;
+  wind_speed: number;
+  icon: string;
   sunrise: number;
   sunset: number;
   clouds: number;
   pop: number;
+  city: string;
+  country: string;
+  lat?: string;
+  lon?: string;
 }
 
 export { CurrentWeather };
