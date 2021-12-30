@@ -3,6 +3,7 @@ import WaterIcon from "@mui/icons-material/Water";
 import CompressIcon from "@mui/icons-material/Compress";
 import AirIcon from "@mui/icons-material/Air";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
+import DailyAddon from "../DailyAddon/DailyAddon";
 import "./CurrentWeatherBlock.css";
 
 const CurrentWeatherBlock = () => {
@@ -22,62 +23,57 @@ const CurrentWeatherBlock = () => {
         </div>
         <div className="weather-details-topright">
           <div className="wd-details-topright-left">
-            <div>
-              <div className="weather-details-icon">
-                <WaterIcon sx={{ marginRight: 1 }} />
-                <Typography color="#FFFFFFDE">Humidity</Typography>
-              </div>
-              <Typography
-                variant="h6"
-                color="aliceblue"
-                sx={{ marginLeft: 4, fontWeight: "bold" }}
-              >
-                69%
-              </Typography>
+            <div className="weather-details-icon">
+              <WaterIcon sx={{ marginRight: 1 }} />
+              <Typography color="#FFFFFFDE">Humidity</Typography>
             </div>
-            <div>
-              <div className="weather-details-icon">
-                <CompressIcon sx={{ marginRight: 1 }} />
-                <Typography color="#FFFFFFDE">Air Pressure</Typography>
-              </div>
-              <Typography
-                variant="h6"
-                color="aliceblue"
-                sx={{ marginLeft: 4, fontWeight: "bold" }}
-              >
-                1051 hPa
-              </Typography>
+            <Typography
+              variant="h6"
+              color="aliceblue"
+              sx={{ marginLeft: 4, fontWeight: "bold" }}
+            >
+              69%
+            </Typography>
+            <div className="weather-details-icon">
+              <CompressIcon sx={{ marginRight: 1 }} />
+              <Typography color="#FFFFFFDE">Air Pressure</Typography>
             </div>
+            <Typography
+              variant="h6"
+              color="aliceblue"
+              sx={{ marginLeft: 4, fontWeight: "bold" }}
+            >
+              1051 hPa
+            </Typography>
           </div>
           <div>
-            <div>
-              <div className="weather-details-icon">
-                <ThermostatIcon sx={{ marginRight: 1 }} />
-                <Typography color="#FFFFFFDE">Feels Like</Typography>
-              </div>
-              <Typography
-                variant="h6"
-                color="aliceblue"
-                sx={{ marginLeft: 4, fontWeight: "bold" }}
-              >
-                19°C
-              </Typography>
+            <div className="weather-details-icon">
+              <ThermostatIcon sx={{ marginRight: 1 }} />
+              <Typography color="#FFFFFFDE">Feels Like</Typography>
             </div>
-            <div>
-              <div className="weather-details-icon">
-                <AirIcon sx={{ marginRight: 1 }} />
-                <Typography color="#FFFFFFDE">Wind Speed</Typography>
-              </div>
-              <Typography
-                variant="h6"
-                color="aliceblue"
-                sx={{ marginLeft: 4, fontWeight: "bold" }}
-              >
-                5.6 MPH
-              </Typography>
+            <Typography
+              variant="h6"
+              color="aliceblue"
+              sx={{ marginLeft: 4, fontWeight: "bold" }}
+            >
+              19°C
+            </Typography>
+            <div className="weather-details-icon">
+              <AirIcon sx={{ marginRight: 1 }} />
+              <Typography color="#FFFFFFDE">Wind Speed</Typography>
             </div>
+            <Typography
+              variant="h6"
+              color="aliceblue"
+              sx={{ marginLeft: 4, fontWeight: "bold" }}
+            >
+              5.6 MPH
+            </Typography>
           </div>
         </div>
+      </div>
+      <div className="weather-details-bottom">
+        <DailyAddon />
       </div>
     </div>
   );
