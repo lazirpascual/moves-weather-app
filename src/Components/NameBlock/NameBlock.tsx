@@ -12,7 +12,8 @@ const NameBlock: React.FC<Props> = ({ name }) => {
   return (
     <div className="sidebar">
       <Typography variant="h4" color="whitesmoke">
-        How's it going, {name}?
+        How's it going, <br />
+        {name}?
       </Typography>
       <Typography variant="h5">
         Today is

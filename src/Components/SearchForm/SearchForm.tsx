@@ -50,6 +50,7 @@ const SearchForm: React.FC<Props> = ({
       } else if (error.response.status === 500) {
         DisplayError("Error 500: Internal Server Error.");
       }
+      setUserInput("");
       console.log(error);
     }
   };
@@ -97,6 +98,7 @@ const SearchForm: React.FC<Props> = ({
             sx={{ m: 1, width: "20ch" }}
             inputProps={{ style: { color: "white" } }}
             InputLabelProps={{ className: "text-label" }}
+            autoComplete="off"
             label="Name"
             variant="filled"
             size="small"
@@ -105,10 +107,12 @@ const SearchForm: React.FC<Props> = ({
           />
         )}
         <TextField
+          value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
           sx={{ m: 1, width: "20ch" }}
           inputProps={{ style: { color: "white" } }}
           InputLabelProps={{ className: "text-label" }}
+          autoComplete="off"
           label="City or Zip Code"
           variant="filled"
           size="small"

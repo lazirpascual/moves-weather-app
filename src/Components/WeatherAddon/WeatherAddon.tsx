@@ -3,6 +3,7 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 import CloudIcon from "@mui/icons-material/Cloud";
 import UmbrellaIcon from "@mui/icons-material/Umbrella";
+import helperFunction from "../../Functions/helper";
 import "./WeatherAddon.css";
 
 interface Props {
@@ -20,43 +21,11 @@ const WeatherAddon: React.FC<Props> = ({
   clouds,
   precipitation,
 }) => {
-  const getDay = (currentDateTime: number) => {
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const date = new Date(currentDateTime * 1000);
-    return days[date.getDay()];
-  };
-
-  const getSunrise = () => {
-    const currentSunrise = new Date(sunrise * 1000);
-    return currentSunrise.toLocaleString("en-US", {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-    });
-  };
-
-  const getSunset = () => {
-    const currentSunset = new Date(sunset * 1000);
-    return currentSunset.toLocaleString("en-US", {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-    });
-  };
-
   return (
     <div className="daily-additional-block">
       <div className="daily-additional-block-left">
         <Typography variant="h3" sx={{ marginTop: 5 }}>
-          {getDay(day)}
+          {helperFunction.getDay(day)}
         </Typography>
       </div>
       <div className="daily-additional-block-right">
@@ -71,7 +40,7 @@ const WeatherAddon: React.FC<Props> = ({
               color="aliceblue"
               sx={{ marginLeft: 4, marginBottom: 1, fontWeight: "bold" }}
             >
-              {getSunrise()}
+              {helperFunction.getTime(sunrise)}
             </Typography>
           </div>
           <div>
@@ -84,7 +53,7 @@ const WeatherAddon: React.FC<Props> = ({
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              {getSunset()}
+              {helperFunction.getTime(sunset)}
             </Typography>
           </div>
         </div>

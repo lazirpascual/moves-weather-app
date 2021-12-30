@@ -1,6 +1,7 @@
 import { useState, Dispatch, SetStateAction } from "react";
 import DailyBlock from "../DailyBlock/DailyBlock";
 import { CurrentWeather } from "../../Interfaces/Interface";
+import helperFunction from "../../Functions/helper";
 import "./SevenDayBlock.css";
 
 interface Props {
@@ -13,25 +14,6 @@ const SevenDayBlock: React.FC<Props> = ({
   setCurrentWeather,
 }) => {
   const [activeDaily, setActiveDaily] = useState<number>(0);
-
-  const getDay = (currentDateTime: number) => {
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const date = new Date(currentDateTime * 1000);
-    return days[date.getDay()];
-  };
-
-  const getDate = (currentDateTime: number) => {
-    const date = new Date(currentDateTime * 1000);
-    return date.toLocaleDateString();
-  };
 
   const handleDailyClick = (index: number, dailyData: CurrentWeather) => {
     setCurrentWeather(dailyData);
@@ -51,8 +33,8 @@ const SevenDayBlock: React.FC<Props> = ({
           key={index}
         >
           <DailyBlock
-            date={getDate(currentData.dt)}
-            day={getDay(currentData.dt)}
+            date={helperFunction.getDate(currentData.dt)}
+            day={helperFunction.getDay(currentData.dt)}
             icon={currentData.icon}
             minTemp={currentData.min_temp}
             maxTemp={currentData.max_temp}
