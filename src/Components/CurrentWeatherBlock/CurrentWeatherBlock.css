@@ -1,5 +1,6 @@
 .weather-details {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   height: 8em;
@@ -19,15 +20,17 @@
 }
 
 .weather-details-topleft {
-  margin-right: 50px;
+  margin-right: 300px;
 }
 
 .weather-details-topright {
   display: flex;
+  position: absolute;
+  right: 45px;
 }
 
 .wd-details-topright-left {
-  margin-right: 30px;
+  margin-right: 48px;
 }
 
 .weather-details-icon {

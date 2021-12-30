@@ -3,7 +3,7 @@ import WaterIcon from "@mui/icons-material/Water";
 import CompressIcon from "@mui/icons-material/Compress";
 import AirIcon from "@mui/icons-material/Air";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
-import DailyAddon from "../DailyAddon/DailyAddon";
+import WeatherAddon from "../WeatherAddon/WeatherAddon";
 import { CurrentWeather } from "../../Interfaces/Interface";
 import "./CurrentWeatherBlock.css";
 
@@ -13,6 +13,7 @@ interface Props {
 
 const CurrentWeatherBlock: React.FC<Props> = ({ currentWeather }) => {
   const iconSrc = `https://openweathermap.org/img/w/${currentWeather.icon}.png`;
+  const convertedSpeed = Math.round(currentWeather.wind_speed * 3.6);
 
   return (
     <div className="weather-details">
@@ -24,7 +25,9 @@ const CurrentWeatherBlock: React.FC<Props> = ({ currentWeather }) => {
               {Math.round(currentWeather.current_temp)}°C
             </Typography>
           </div>
-          <Typography sx={{ marginLeft: 11 }}>snow and rain</Typography>
+          <Typography sx={{ marginLeft: 11, marginBottom: 2 }}>
+            {currentWeather.desc}
+          </Typography>
           <Typography variant="h4" color="aliceblue">
             {currentWeather.city}, {currentWeather.country}
           </Typography>
@@ -75,13 +78,14 @@ const CurrentWeatherBlock: React.FC<Props> = ({ currentWeather }) => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              {(currentWeather.wind_speed * 3.6).toFixed(1)} km/h
+              {convertedSpeed > 9 ? "" + convertedSpeed : "0" + convertedSpeed}{" "}
+              km/h
             </Typography>
           </div>
         </div>
       </div>
       <div className="weather-details-bottom">
-        <DailyAddon
+        <WeatherAddon
           day={currentWeather.dt}
           sunrise={currentWeather.sunrise}
           sunset={currentWeather.sunset}

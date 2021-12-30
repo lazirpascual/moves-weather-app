@@ -3,7 +3,7 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 import CloudIcon from "@mui/icons-material/Cloud";
 import UmbrellaIcon from "@mui/icons-material/Umbrella";
-import "./DailyAddon.css";
+import "./WeatherAddon.css";
 
 interface Props {
   day: number;
@@ -13,7 +13,7 @@ interface Props {
   precipitation: number;
 }
 
-const DailyAddon: React.FC<Props> = ({
+const WeatherAddon: React.FC<Props> = ({
   day,
   sunrise,
   sunset,
@@ -55,13 +55,13 @@ const DailyAddon: React.FC<Props> = ({
   return (
     <div className="daily-additional-block">
       <div className="daily-additional-block-left">
-        <Typography variant="h3" sx={{ marginTop: 2.5 }}>
+        <Typography variant="h3" sx={{ marginTop: 5 }}>
           {getDay(day)}
         </Typography>
       </div>
       <div className="daily-additional-block-right">
         <div className="wd-details-topright-left">
-          <div>
+          <div className="tests">
             <div className="weather-details-icon">
               <WbSunnyIcon sx={{ marginRight: 1 }} />
               <Typography color="#FFFFFFDE">Sunrise</Typography>
@@ -121,4 +121,4 @@ const DailyAddon: React.FC<Props> = ({
   );
 };
 
-export default DailyAddon;
+export default WeatherAddon;
