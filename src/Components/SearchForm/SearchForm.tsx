@@ -8,15 +8,21 @@ import TextField from "@mui/material/TextField";
 import { CurrentWeather } from "../../Interfaces/Interface";
 import { fetchCurrentData, fetchOneCallData } from "../../Api";
 import Notification from "../Notification/Notification";
-import "./UserForm.css";
+import "./SearchForm.css";
 
 interface Props {
   name: string;
   setName: Dispatch<SetStateAction<string>>;
   setCurrentWeather: Dispatch<SetStateAction<CurrentWeather | null>>;
+  setDailyWeatherList: React.Dispatch<React.SetStateAction<CurrentWeather[]>>;
 }
 
-const UserForm: React.FC<Props> = ({ name, setName, setCurrentWeather }) => {
+const SearchForm: React.FC<Props> = ({
+  name,
+  setName,
+  setCurrentWeather,
+  setDailyWeatherList,
+}) => {
   const [userInput, setUserInput] = useState<string>("");
   const [nameExist, SetNameExists] = useState<boolean>(name ? true : false);
   const [openNotification, setOpenNotification] = useState<boolean>(false);
@@ -33,6 +39,7 @@ const UserForm: React.FC<Props> = ({ name, setName, setCurrentWeather }) => {
         currentWeatherData.country
       );
       setCurrentWeather(oneCallData.dailyData[0]);
+      setDailyWeatherList(oneCallData.dailyData);
     } catch (error: any) {
       if (error.response.status === 404) {
         DisplayError(
@@ -65,11 +72,11 @@ const UserForm: React.FC<Props> = ({ name, setName, setCurrentWeather }) => {
         type="error"
       />
       <form onSubmit={handleSubmitClick} className="start-card">
-        <Typography sx={{ fontWeight: "bold" }} color="aliceblue" variant="h5">
+        <Typography sx={{ fontWeight: "bold" }} color="aliceblue" variant="h4">
           Welcome to
-          <span className="text-color"> Moves Weather App</span>
+          <span className="text-color"> Moves Weather App!</span>
         </Typography>
-        <Typography color="aliceblue">
+        <Typography color="aliceblue" variant="h6">
           Please enter your <b>name</b> and <b>location</b>
         </Typography>
         {nameExist ? (
@@ -120,4 +127,4 @@ const UserForm: React.FC<Props> = ({ name, setName, setCurrentWeather }) => {
   );
 };
 
-export default UserForm;
+export default SearchForm;

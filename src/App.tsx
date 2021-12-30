@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserForm from "./Components/CityForm/UserForm";
+import SearchForm from "./Components/SearchForm/SearchForm";
 import NameBlock from "./Components/NameBlock/NameBlock";
 import CurrentWeatherBlock from "./Components/CurrentWeatherBlock/CurrentWeatherBlock";
 import SevenDayBlock from "./Components/SevenDayBlock/SevenDayBlock";
@@ -13,6 +13,9 @@ function App() {
   const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(
     null
   );
+  const [dailyWeatherList, setDailyWeatherList] = useState<CurrentWeather[]>(
+    []
+  );
 
   const handleBackClick = () => {
     setCurrentWeather(null);
@@ -21,10 +24,11 @@ function App() {
   return (
     <div className="start-container">
       {currentWeather === null ? (
-        <UserForm
+        <SearchForm
           name={name}
           setName={setName}
           setCurrentWeather={setCurrentWeather}
+          setDailyWeatherList={setDailyWeatherList}
         />
       ) : (
         <div>
@@ -37,7 +41,10 @@ function App() {
             <NameBlock name={name} />
             <CurrentWeatherBlock currentWeather={currentWeather} />
           </div>
-          <SevenDayBlock />
+          <SevenDayBlock
+            dailyWeatherList={dailyWeatherList}
+            setCurrentWeather={setCurrentWeather}
+          />
         </div>
       )}
     </div>

@@ -7,6 +7,8 @@ interface Props {
 
 const NameBlock: React.FC<Props> = ({ name }) => {
   const date = new Date();
+  const options = { year: "numeric", month: "numeric", day: "numeric" };
+
   return (
     <div className="sidebar">
       <Typography variant="h4" color="whitesmoke">

@@ -75,7 +75,7 @@ const CurrentWeatherBlock: React.FC<Props> = ({ currentWeather }) => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              {currentWeather.wind_speed} MPH
+              {(currentWeather.wind_speed * 3.6).toFixed(1)} km/h
             </Typography>
           </div>
         </div>
