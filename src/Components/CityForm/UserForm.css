@@ -23,3 +23,9 @@
 .text-label {
   color: aliceblue !important;
 }
+
+.display-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
