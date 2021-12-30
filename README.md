@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# Moves Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Demo of [Moves Weather App](https://moves-weather-app.netlify.app/)
 
-## Available Scripts
+This is a react application that uses the OpenWeatherMap API to dynamically display the 7-day weather forecast at the user's choice of location. Made using TypeScript, React JS, and Material-UI. <br />
 
-In the project directory, you can run:
+## 🛠 Tech Stack
 
-### `npm start`
+| <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/typescript.svg" width="40"> | <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/react.svg" width="40"> | <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/material-ui.svg" width="40"> |
+| :--------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------: |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Front-End**: TypeScript, React, Material-UI </br>
+- **Testing**: Jest, React-Testing-Library
+- **Deployment**: Netlify
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ⚙️ Features
 
-### `npm test`
+- Search weather data through city or zip code
+- Displays current weather data and forecast for the next seven days
+- Each panel for the 7 days is clickable, displaying additional details
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✎ Notes
 
-### `npm run build`
+- This app was created in React using Typescript
+- Components were built to be as modularized and reusable as possible
+- Material-UI and CSS were used to style and design the application, including all the icons
+- On top of the main requirements, all 4 of Extra Credit requirements (Testing, Reusable Components, TypeScript, Error) were included
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Application Progress
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [x] Design the layout and UI of the application
+- [x] Split the UI into individual components
+- [x] Create and implement app using TypeScript
+- [x] Create searh page
+- [x] Create weather page (description, current/min/max temp, wind speed, precipitation, humidity)
+- [x] Create functions to fetch from API
+- [x] Fetch from city as well as zip code
+- [x] Add error handling for non-existing cities/zip code
+- [ ] Add unit testing for components
+- [ ] Add responsiveness for all screen sizes
+- [ ] Finish readme.md
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Screenshots
 
-### `npm run eject`
+## 1. Search Page
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![preview](https://i.imgur.com/8jxGdP1.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 2. Weather Info Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![preview](https://i.imgur.com/wfRRgDM.png)

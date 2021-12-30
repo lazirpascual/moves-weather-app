@@ -61,7 +61,7 @@ const WeatherAddon: React.FC<Props> = ({
       </div>
       <div className="daily-additional-block-right">
         <div className="wd-details-topright-left">
-          <div className="tests">
+          <div className="wd-details-topright-cont">
             <div className="weather-details-icon">
               <WbSunnyIcon sx={{ marginRight: 1 }} />
               <Typography color="#FFFFFFDE">Sunrise</Typography>
@@ -69,7 +69,7 @@ const WeatherAddon: React.FC<Props> = ({
             <Typography
               variant="h6"
               color="aliceblue"
-              sx={{ marginLeft: 4, fontWeight: "bold" }}
+              sx={{ marginLeft: 4, marginBottom: 1, fontWeight: "bold" }}
             >
               {getSunrise()}
             </Typography>
@@ -97,7 +97,7 @@ const WeatherAddon: React.FC<Props> = ({
             <Typography
               variant="h6"
               color="aliceblue"
-              sx={{ marginLeft: 4, fontWeight: "bold" }}
+              sx={{ marginLeft: 4, marginBottom: 1, fontWeight: "bold" }}
             >
               {clouds}%
             </Typography>

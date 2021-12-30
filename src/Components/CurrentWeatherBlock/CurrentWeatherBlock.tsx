@@ -41,7 +41,7 @@ const CurrentWeatherBlock: React.FC<Props> = ({ currentWeather }) => {
             <Typography
               variant="h6"
               color="aliceblue"
-              sx={{ marginLeft: 4, fontWeight: "bold" }}
+              sx={{ marginLeft: 4, marginBottom: 1, fontWeight: "bold" }}
             >
               {currentWeather.humidity}%
             </Typography>
@@ -65,7 +65,7 @@ const CurrentWeatherBlock: React.FC<Props> = ({ currentWeather }) => {
             <Typography
               variant="h6"
               color="aliceblue"
-              sx={{ marginLeft: 4, fontWeight: "bold" }}
+              sx={{ marginLeft: 4, marginBottom: 1, fontWeight: "bold" }}
             >
               {Math.round(currentWeather.feels_like)}°C
             </Typography>
