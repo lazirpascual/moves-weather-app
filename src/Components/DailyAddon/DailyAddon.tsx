@@ -5,12 +5,58 @@ import CloudIcon from "@mui/icons-material/Cloud";
 import UmbrellaIcon from "@mui/icons-material/Umbrella";
 import "./DailyAddon.css";
 
-const DailyAddon = () => {
+interface Props {
+  day: number;
+  sunrise: number;
+  sunset: number;
+  clouds: number;
+  precipitation: number;
+}
+
+const DailyAddon: React.FC<Props> = ({
+  day,
+  sunrise,
+  sunset,
+  clouds,
+  precipitation,
+}) => {
+  const getDay = (currentDateTime: number) => {
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const date = new Date(currentDateTime * 1000);
+    return days[date.getDay()];
+  };
+
+  const getSunrise = () => {
+    const currentSunrise = new Date(sunrise * 1000);
+    return currentSunrise.toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+  };
+
+  const getSunset = () => {
+    const currentSunset = new Date(sunset * 1000);
+    return currentSunset.toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+  };
+
   return (
     <div className="daily-additional-block">
       <div className="daily-additional-block-left">
         <Typography variant="h3" sx={{ marginTop: 2.5 }}>
-          Thursday
+          {getDay(day)}
         </Typography>
       </div>
       <div className="daily-additional-block-right">
@@ -25,7 +71,7 @@ const DailyAddon = () => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              6:53 AM
+              {getSunrise()}
             </Typography>
           </div>
           <div>
@@ -38,7 +84,7 @@ const DailyAddon = () => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              5:57 PM
+              {getSunset()}
             </Typography>
           </div>
         </div>
@@ -53,7 +99,7 @@ const DailyAddon = () => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              100%
+              {clouds}%
             </Typography>
           </div>
           <div>
@@ -66,7 +112,7 @@ const DailyAddon = () => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              87%
+              {Math.round(precipitation * 100)}%
             </Typography>
           </div>
         </div>

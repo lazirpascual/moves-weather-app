@@ -1,12 +1,16 @@
 import "./NameBlock.css";
 import Typography from "@mui/material/Typography";
 
-const NameBlock = () => {
+interface Props {
+  name: string;
+}
+
+const NameBlock: React.FC<Props> = ({ name }) => {
   const date = new Date();
   return (
     <div className="sidebar">
       <Typography variant="h4" color="whitesmoke">
-        How's it going, Lazir?
+        How's it going, {name}?
       </Typography>
       <Typography variant="h5">
         Today is

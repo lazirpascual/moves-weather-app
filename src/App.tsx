@@ -14,6 +14,10 @@ function App() {
     null
   );
 
+  const handleBackClick = () => {
+    setCurrentWeather(null);
+  };
+
   return (
     <div className="start-container">
       {currentWeather === null ? (
@@ -25,13 +29,13 @@ function App() {
       ) : (
         <div>
           <div className="back-button">
-            <IconButton color="inherit" size="large">
+            <IconButton color="inherit" size="large" onClick={handleBackClick}>
               <KeyboardBackspaceIcon sx={{ fontSize: "45px" }} />
             </IconButton>
           </div>
           <div className="weather-top">
-            <NameBlock />
-            <CurrentWeatherBlock />
+            <NameBlock name={name} />
+            <CurrentWeatherBlock currentWeather={currentWeather} />
           </div>
           <SevenDayBlock />
         </div>

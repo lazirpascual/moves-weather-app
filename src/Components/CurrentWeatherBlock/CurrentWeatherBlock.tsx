@@ -4,21 +4,29 @@ import CompressIcon from "@mui/icons-material/Compress";
 import AirIcon from "@mui/icons-material/Air";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import DailyAddon from "../DailyAddon/DailyAddon";
+import { CurrentWeather } from "../../Interfaces/Interface";
 import "./CurrentWeatherBlock.css";
 
-const CurrentWeatherBlock = () => {
+interface Props {
+  currentWeather: CurrentWeather;
+}
+
+const CurrentWeatherBlock: React.FC<Props> = ({ currentWeather }) => {
+  const iconSrc = `https://openweathermap.org/img/w/${currentWeather.icon}.png`;
+
   return (
     <div className="weather-details">
       <div className="weather-details-top">
         <div className="weather-details-topleft">
           <div className="weather-details-icon">
+            <img src={iconSrc} height="60px" width="60px" alt="WeatherIcon" />
             <Typography variant="h3" color="aliceblue" sx={{ marginLeft: 3 }}>
-              15°C
+              {Math.round(currentWeather.current_temp)}°C
             </Typography>
           </div>
           <Typography sx={{ marginLeft: 11 }}>snow and rain</Typography>
           <Typography variant="h4" color="aliceblue">
-            Kitchener, CA
+            {currentWeather.city}, {currentWeather.country}
           </Typography>
         </div>
         <div className="weather-details-topright">
@@ -32,7 +40,7 @@ const CurrentWeatherBlock = () => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              69%
+              {currentWeather.humidity}%
             </Typography>
             <div className="weather-details-icon">
               <CompressIcon sx={{ marginRight: 1 }} />
@@ -43,7 +51,7 @@ const CurrentWeatherBlock = () => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              1051 hPa
+              {currentWeather.pressure} hPa
             </Typography>
           </div>
           <div>
@@ -56,7 +64,7 @@ const CurrentWeatherBlock = () => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              19°C
+              {Math.round(currentWeather.feels_like)}°C
             </Typography>
             <div className="weather-details-icon">
               <AirIcon sx={{ marginRight: 1 }} />
@@ -67,13 +75,19 @@ const CurrentWeatherBlock = () => {
               color="aliceblue"
               sx={{ marginLeft: 4, fontWeight: "bold" }}
             >
-              5.6 MPH
+              {currentWeather.wind_speed} MPH
             </Typography>
           </div>
         </div>
       </div>
       <div className="weather-details-bottom">
-        <DailyAddon />
+        <DailyAddon
+          day={currentWeather.dt}
+          sunrise={currentWeather.sunrise}
+          sunset={currentWeather.sunset}
+          clouds={currentWeather.clouds}
+          precipitation={currentWeather.pop}
+        />
       </div>
     </div>
   );
