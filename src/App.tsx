@@ -1,5 +1,6 @@
 import UserForm from "./Components/CityForm/UserForm";
 import NameBlock from "./Components/NameBlock/NameBlock";
+import CurrentWeatherBlock from "./Components/CurrentWeatherBlock/CurrentWeatherBlock";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import IconButton from "@mui/material/IconButton";
 import "./App.css";
@@ -15,6 +16,7 @@ function App() {
         </div>
         <div className="weather-top">
           <NameBlock />
+          <CurrentWeatherBlock />
         </div>
       </div>
     </div>
