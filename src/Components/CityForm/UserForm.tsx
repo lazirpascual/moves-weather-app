@@ -1,10 +1,20 @@
+import { useState, Dispatch, SetStateAction } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import { CurrentWeather } from "../../Interfaces/Interface";
 import "./UserForm.css";
 
-const UserForm = () => {
+interface Props {
+  name: string;
+  setName: Dispatch<SetStateAction<string>>;
+  setCurrentWeather: Dispatch<SetStateAction<CurrentWeather | null>>;
+}
+
+const UserForm: React.FC<Props> = ({ name, setName }) => {
+  const [userInput, setUserInput] = useState<string>("");
+
   return (
     <div>
       <form className="start-card">
@@ -16,6 +26,7 @@ const UserForm = () => {
           Please enter your <b>name</b> and <b>location</b>
         </Typography>
         <TextField
+          onChange={(e) => setName(e.target.value)}
           sx={{ m: 1, width: "20ch" }}
           inputProps={{ style: { color: "white" } }}
           InputLabelProps={{ className: "text-label" }}
@@ -26,6 +37,7 @@ const UserForm = () => {
           required
         />
         <TextField
+          onChange={(e) => setUserInput(e.target.value)}
           sx={{ m: 1, width: "20ch" }}
           inputProps={{ style: { color: "white" } }}
           InputLabelProps={{ className: "text-label" }}
