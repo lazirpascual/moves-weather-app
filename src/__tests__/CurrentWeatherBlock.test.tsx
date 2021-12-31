@@ -30,4 +30,11 @@ test("<CurrentWeatherBlock /> renders the correct content", () => {
   expect(screen.getByText(/Kitchener, CA/)).toBeInTheDocument();
   expect(screen.getByText(/overcast clouds/)).toBeInTheDocument();
   expect(screen.getByText(/Friday/)).toBeInTheDocument();
+  expect(screen.getByText(/92%/)).toBeInTheDocument();
+  expect(screen.getByText(/1012 hPa/)).toBeInTheDocument();
+  expect(screen.getByText(/-1°C/)).toBeInTheDocument();
+  expect(screen.getByText(/7:54 AM/)).toBeInTheDocument();
+  expect(screen.getByText(/4:55 PM/)).toBeInTheDocument();
+  expect(screen.getByText(/100%/)).toBeInTheDocument();
+  expect(screen.getByText(/5%/)).toBeInTheDocument();
 });
