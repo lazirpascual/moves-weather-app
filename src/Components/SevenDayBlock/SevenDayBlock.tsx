@@ -2,6 +2,7 @@ import { useState, Dispatch, SetStateAction } from "react";
 import DailyBlock from "../DailyBlock/DailyBlock";
 import { CurrentWeather } from "../../Interfaces/Interface";
 import helperFunction from "../../Functions/helper";
+import Grid from "@mui/material/Grid";
 import "./SevenDayBlock.css";
 
 interface Props {
@@ -21,9 +22,13 @@ const SevenDayBlock: React.FC<Props> = ({
   };
 
   return (
-    <div className="daily-details">
+    <Grid container className="daily-details">
       {dailyWeatherList.map((currentData, index) => (
-        <div
+        <Grid
+          item
+          // xs={5}
+          // md={2.5}
+          // lg={1.3}
           onClick={() => handleDailyClick(index, currentData)}
           className={
             activeDaily === index
@@ -39,9 +44,9 @@ const SevenDayBlock: React.FC<Props> = ({
             minTemp={currentData.min_temp}
             maxTemp={currentData.max_temp}
           />
-        </div>
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 };
 

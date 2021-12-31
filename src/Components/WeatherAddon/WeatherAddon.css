@@ -1,24 +1,3 @@
-.daily-additional-block {
-  display: flex;
-  position: fixed;
-}
-
-.daily-additional-block-right {
-  display: flex;
-  margin-right: 30px;
-  margin-left: 10px;
-  margin-top: -10px;
-}
-
-.daily-additional-block-left {
-  position: absolute;
-  right: 117%;
-}
-
-.weather-details-icon {
-  display: flex;
-}
-
-.wd-details-topright-cont {
-  margin-right: 12px;
+.weather-details-item {
+  width: 160px !important;
 }

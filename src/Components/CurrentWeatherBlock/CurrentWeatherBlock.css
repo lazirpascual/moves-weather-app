@@ -1,10 +1,6 @@
 .weather-details {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  height: 8em;
-  width: 17em;
+  max-width: 17em;
+  min-width: 6em;
   margin-top: 5%;
   background-color: rgba(45, 53, 80, 0.795);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -13,32 +9,15 @@
   font-family: fantasy;
 }
 
-.weather-details-top {
-  display: flex;
+.weather-details-left {
+  margin-left: 50px !important;
+  margin-top: 30px !important;
+  width: 45% !important;
   color: #a1aac7;
-  margin-top: 5%;
 }
 
-.weather-details-topleft {
-  margin-right: 320px;
-}
-
-.weather-details-topright {
-  display: flex;
-  position: absolute;
-  right: 45px;
-}
-
-.wd-details-topright-left {
-  margin-right: 48px;
-}
-
-.weather-details-icon {
-  display: flex;
-}
-
-.weather-details-bottom {
-  display: flex;
-  flex-direction: row;
+.weather-details-right {
+  margin-top: 20px !important;
+  width: 46% !important;
   color: #a1aac7;
 }

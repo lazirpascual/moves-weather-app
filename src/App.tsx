@@ -41,10 +41,12 @@ function App() {
             <NameBlock name={name} />
             <CurrentWeatherBlock currentWeather={currentWeather} />
           </div>
-          <SevenDayBlock
-            dailyWeatherList={dailyWeatherList}
-            setCurrentWeather={setCurrentWeather}
-          />
+          <div className="weather-bottom">
+            <SevenDayBlock
+              dailyWeatherList={dailyWeatherList}
+              setCurrentWeather={setCurrentWeather}
+            />
+          </div>
         </div>
       )}
     </div>
