@@ -36,8 +36,8 @@ This is a react application that uses the OpenWeatherMap API to dynamically disp
 - [x] Create functions to fetch from API
 - [x] Fetch from city as well as zip code
 - [x] Add error handling for non-existing cities/zip code
+- [x] Add responsiveness for all screen sizes
 - [ ] Add unit testing for components
-- [ ] Add responsiveness for all screen sizes
 - [ ] Finish readme.md
 
 # Screenshots

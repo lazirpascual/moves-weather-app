@@ -1,13 +1,5 @@
 import Typography from "@mui/material/Typography";
-import WaterIcon from "@mui/icons-material/Water";
-import CompressIcon from "@mui/icons-material/Compress";
-import AirIcon from "@mui/icons-material/Air";
-import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WeatherAddon from "../WeatherAddon/WeatherAddon";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import NightlightIcon from "@mui/icons-material/Nightlight";
-import CloudIcon from "@mui/icons-material/Cloud";
-import UmbrellaIcon from "@mui/icons-material/Umbrella";
 import Grid from "@mui/material/Grid";
 import { CurrentWeather } from "../../Interfaces/Interface";
 import helperFunction from "../../Functions/helper";
@@ -21,7 +13,7 @@ const CurrentWeatherBlock: React.FC<Props> = ({ currentWeather }) => {
   const iconSrc = `https://openweathermap.org/img/w/${currentWeather.icon}.png`;
 
   return (
-    <Grid container className="weather-details">
+    <Grid container className="weather-details" direction="column">
       <Grid item className="weather-details-left">
         <Grid container direction="row">
           <img src={iconSrc} height="70px" width="70px" alt="WeatherIcon" />

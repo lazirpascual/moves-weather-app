@@ -6,6 +6,7 @@ import SevenDayBlock from "./Components/SevenDayBlock/SevenDayBlock";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import IconButton from "@mui/material/IconButton";
 import { CurrentWeather } from "./Interfaces/Interface";
+import Grid from "@mui/material/Grid";
 import "./App.css";
 
 function App() {
@@ -37,10 +38,10 @@ function App() {
               <KeyboardBackspaceIcon sx={{ fontSize: "45px" }} />
             </IconButton>
           </div>
-          <div className="weather-top">
+          <Grid container className="weather-top">
             <NameBlock name={name} />
             <CurrentWeatherBlock currentWeather={currentWeather} />
-          </div>
+          </Grid>
           <div className="weather-bottom">
             <SevenDayBlock
               dailyWeatherList={dailyWeatherList}

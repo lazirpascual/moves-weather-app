@@ -26,15 +26,16 @@ const SevenDayBlock: React.FC<Props> = ({
       {dailyWeatherList.map((currentData, index) => (
         <Grid
           item
-          // xs={5}
-          // md={2.5}
-          // lg={1.3}
+          xs={2.5}
+          md={2.3}
+          lg={1.3}
           onClick={() => handleDailyClick(index, currentData)}
           className={
             activeDaily === index
               ? "daily-details-block-selected"
               : "daily-details-block"
           }
+          sx={{ margin: 1 }}
           key={index}
         >
           <DailyBlock

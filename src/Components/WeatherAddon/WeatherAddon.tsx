@@ -56,14 +56,14 @@ const WeatherAddon: React.FC<Props> = ({ currentWeather }) => {
     {
       icon: <UmbrellaIcon />,
       labelName: "Precipitation",
-      value: `${currentWeather.pop}%`,
+      value: `${Math.round(currentWeather.pop * 100)}%`,
     },
   ];
 
   return (
     <Grid container spacing={2}>
       {WeatherDetails.map((weatherData) => (
-        <Grid item className="weather-details-item">
+        <Grid item xs={6} md={6}>
           <Grid container direction="row">
             {weatherData.icon}
             <Typography color="#FFFFFFDE" sx={{ marginLeft: 1 }}>
