@@ -1,3 +1,4 @@
+// converts datetime number to corresponding day
 const getDay = (currentDateTime: number) => {
   const days = [
     "Sunday",
@@ -12,11 +13,13 @@ const getDay = (currentDateTime: number) => {
   return days[date.getDay()];
 };
 
+// converts datetime number to corresponding date
 const getDate = (currentDateTime: number) => {
   const date = new Date(currentDateTime * 1000);
   return date.toLocaleDateString();
 };
 
+// converts datetime number to corresponding local time
 const getTime = (dateTime: number) => {
   const currentSunrise = new Date(dateTime * 1000);
   return currentSunrise.toLocaleString("en-US", {

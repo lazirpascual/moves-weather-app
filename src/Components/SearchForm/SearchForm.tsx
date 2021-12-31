@@ -38,6 +38,7 @@ const SearchForm: React.FC<Props> = ({
         currentWeatherData.city,
         currentWeatherData.country
       );
+      // set current weather to first item in the list (current day)
       setCurrentWeather(oneCallData.dailyData[0]);
       setDailyWeatherList(oneCallData.dailyData);
     } catch (error: any) {
@@ -51,7 +52,6 @@ const SearchForm: React.FC<Props> = ({
         DisplayError("Error 500: Internal Server Error.");
       }
       setUserInput("");
-      console.log(error);
     }
   };
 
