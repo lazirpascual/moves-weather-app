@@ -41,6 +41,8 @@ const SearchForm: React.FC<Props> = ({
       // set current weather to first item in the list (current day)
       setCurrentWeather(oneCallData.dailyData[0]);
       setDailyWeatherList(oneCallData.dailyData);
+      localStorage.setItem("city", userInput);
+      localStorage.setItem("name", name);
     } catch (error: any) {
       if (error.response.status === 404) {
         DisplayError(

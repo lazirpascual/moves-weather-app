@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchCurrentData, fetchOneCallData } from "./Api";
 import SearchForm from "./Components/SearchForm/SearchForm";
 import NameBlock from "./Components/NameBlock/NameBlock";
 import CurrentWeatherBlock from "./Components/CurrentWeatherBlock/CurrentWeatherBlock";
@@ -18,8 +19,37 @@ function App() {
     []
   );
 
+  useEffect(() => {
+    const fetchLocalData = async () => {
+      const city = localStorage.getItem("city");
+      const name = localStorage.getItem("name");
+
+      try {
+        if (city && name) {
+          const currentWeatherData = await fetchCurrentData(city);
+          const oneCallData = await fetchOneCallData(
+            currentWeatherData.lat,
+            currentWeatherData.lon,
+            currentWeatherData.city,
+            currentWeatherData.country
+          );
+          // set current weather to first item in the list (current day)
+          setCurrentWeather(oneCallData.dailyData[0]);
+          setDailyWeatherList(oneCallData.dailyData);
+          setName(name);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchLocalData();
+  }, []);
+
   const handleBackClick = () => {
     setCurrentWeather(null);
+    localStorage.setItem("city", "");
+    localStorage.setItem("name", "");
   };
 
   return (
