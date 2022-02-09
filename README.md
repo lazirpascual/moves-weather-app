@@ -1,8 +1,8 @@
-# Moves Weather App
+# Weather Tab
 
-## Live Demo of [Moves Weather App](https://moves-weather-app.netlify.app/)
+## Live Demo of [Weather Tab](https://moves-weather-app.netlify.app/)
 
-This is a react application that uses the OpenWeatherMap API to dynamically display the 7-day weather forecast at the user's choice of location. Made using TypeScript, React JS, and Material-UI. <br />
+This is a chrome extension that uses the OpenWeatherMap API to dynamically display the 7-day weather forecast at the user's choice of location. Made using TypeScript, React JS, and Material-UI. <br />
 
 ## 🛠 Tech Stack
 
@@ -11,7 +11,7 @@ This is a react application that uses the OpenWeatherMap API to dynamically disp
 
 - **Front-End**: TypeScript, React, Material-UI </br>
 - **Testing**: Jest, React-Testing-Library
-- **Deployment**: Netlify
+- **Deployment**: Google Chrome Extension, Netlify
 
 ## ⚙️ Features
 
@@ -26,7 +26,6 @@ This is a react application that uses the OpenWeatherMap API to dynamically disp
 - Components were built to be as modularized and reusable as possible
 - Adequate error handling was implemented to verify the user input
 - Unit tests were conducted through Jest and React-Testing-Libary
-- On top of the main requirements, all 4 of Extra Credit requirements (Testing, Reusable Components, TypeScript, Error) were included
 
 # Application Progress
 
