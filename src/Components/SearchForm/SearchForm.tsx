@@ -77,7 +77,7 @@ const SearchForm: React.FC<Props> = ({
       <form onSubmit={handleSubmitClick} className="start-card">
         <Typography sx={{ fontWeight: "bold" }} color="aliceblue" variant="h4">
           Welcome to
-          <span className="text-color"> Moves Weather App!</span>
+          <span className="text-color"> Weather Tab!</span>
         </Typography>
         <Typography color="aliceblue" variant="h6">
           Please enter your <b>name</b> and <b>location</b>
