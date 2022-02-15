@@ -20,15 +20,10 @@ body {
   color: whitesmoke;
 }
 
-.back-button {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-}
-
 .weather-top {
   display: flex;
   justify-content: center;
+  margin-top: 25px;
 }
 
 @media (max-width: 770px) {

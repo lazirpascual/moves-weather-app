@@ -10,6 +10,7 @@ import { CurrentWeather } from "./Interfaces/Interface";
 import Grid from "@mui/material/Grid";
 import "./App.css";
 import GoogleSearch from "./Components/GoogleSearch/GoogleSearch";
+import Header from "./Components/Header/Header";
 
 function App() {
   const [name, setName] = useState<string>("");
@@ -64,11 +65,7 @@ function App() {
         />
       ) : (
         <div>
-          <div className="back-button">
-            <IconButton color="inherit" size="large" onClick={handleBackClick}>
-              <KeyboardBackspaceIcon sx={{ fontSize: "45px" }} />
-            </IconButton>
-          </div>
+          <Header handleBackClick={handleBackClick} />
           <Grid container className="weather-top">
             <NameBlock name={name} />
             <CurrentWeatherBlock currentWeather={currentWeather} />
