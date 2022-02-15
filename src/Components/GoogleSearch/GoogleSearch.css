@@ -1,0 +1,32 @@
+.main-search-box {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+  width: 50%;
+  text-align: center;
+}
+
+.round-input-text {
+  border: 1px solid #d6d4d4;
+  border-radius: 25px;
+  width: 582px;
+  height: 40px;
+  align-self: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  padding-left: 25px;
+  font-size: 17px;
+}
+
+.round-input-text:hover {
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+  border-color: rgba(223, 225, 229, 0);
+}
+
+input:focus {
+  outline: none;
+}
