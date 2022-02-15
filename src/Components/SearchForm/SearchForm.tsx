@@ -115,7 +115,7 @@ const SearchForm: React.FC<Props> = ({
           inputProps={{ style: { color: "white" } }}
           InputLabelProps={{ className: "text-label" }}
           autoComplete="off"
-          label="City or Zip Code"
+          label="City"
           variant="filled"
           size="small"
           required

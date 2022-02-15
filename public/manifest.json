@@ -3,7 +3,7 @@
   "name": "Weather Tab",
   "author": "Lazir Pascual",
   "version": "1.0.1",
-  "description": "Replace new tab a weather app and a search bar",
+  "description": "Replace new tab with a weather app and a search bar",
   "icons": {
     "16": "darwinFav16.ico",
     "48": "darwinFav48.ico",
