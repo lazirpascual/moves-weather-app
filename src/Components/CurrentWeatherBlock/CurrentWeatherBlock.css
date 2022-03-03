@@ -1,5 +1,5 @@
 .weather-details {
-  height: 8em;
+  height: 24vh;
   max-width: 17em;
   background-color: rgba(45, 53, 80, 0.795);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);

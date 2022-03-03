@@ -67,7 +67,6 @@ function App() {
 
   return (
     <div className="start-container" style={backgroundStyle}>
-      <div>
         {currentWeather === null ? (
           <SearchForm
             name={name}
@@ -91,7 +90,6 @@ function App() {
             <GoogleSearch />
           </div>
         )}
-      </div>
       <BackgroundDialog setBackground={setBackground} />
     </div>
   );
