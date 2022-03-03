@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchCurrentData = async (query: string) => {
-  const cityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=16f50bdf5889306f5580348e7afebac0`;
+  const cityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
   const {
     data: { name, sys, coord },
@@ -23,7 +23,7 @@ export const fetchOneCallData = async (
   city: string,
   country: string
 ) => {
-  const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely&units=metric&appid=16f50bdf5889306f5580348e7afebac0`;
+  const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
   const {
     data: { daily },
