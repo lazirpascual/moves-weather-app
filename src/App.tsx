@@ -21,6 +21,19 @@ function App() {
   );
   const [background, setBackground] = useState<string>("");
 
+  const updateWeather = async (city: string) => {
+    const currentWeatherData = await fetchCurrentData(city);
+    const oneCallData = await fetchOneCallData(
+      currentWeatherData.lat,
+      currentWeatherData.lon,
+      currentWeatherData.city,
+      currentWeatherData.country
+    );
+    // set current weather to first item in the list (current day)
+    setCurrentWeather(oneCallData.dailyData[0]);
+    setDailyWeatherList(oneCallData.dailyData);
+  };
+
   useEffect(() => {
     const fetchLocalData = async () => {
       const city = localStorage.getItem("city");
@@ -29,19 +42,9 @@ function App() {
 
       try {
         if (city && name) {
-          const currentWeatherData = await fetchCurrentData(city);
-          const oneCallData = await fetchOneCallData(
-            currentWeatherData.lat,
-            currentWeatherData.lon,
-            currentWeatherData.city,
-            currentWeatherData.country
-          );
-          // set current weather to first item in the list (current day)
-          setCurrentWeather(oneCallData.dailyData[0]);
-          setDailyWeatherList(oneCallData.dailyData);
+          updateWeather(city);
           setName(name);
         }
-
         if (background) {
           setBackground(background);
         } else {
@@ -67,29 +70,28 @@ function App() {
 
   return (
     <div className="start-container" style={backgroundStyle}>
-        {currentWeather === null ? (
-          <SearchForm
-            name={name}
-            setName={setName}
-            setCurrentWeather={setCurrentWeather}
-            setDailyWeatherList={setDailyWeatherList}
-          />
-        ) : (
-          <div>
-            <Header handleBackClick={handleBackClick} />
-            <Grid container className="weather-top">
-              <NameBlock name={name} />
-              <CurrentWeatherBlock currentWeather={currentWeather} />
-            </Grid>
-            <div className="weather-bottom">
-              <SevenDayBlock
-                dailyWeatherList={dailyWeatherList}
-                setCurrentWeather={setCurrentWeather}
-              />
-            </div>
-            <GoogleSearch />
+      {currentWeather === null ? (
+        <SearchForm
+          name={name}
+          setName={setName}
+          updateWeather={updateWeather}
+        />
+      ) : (
+        <div>
+          <Header handleBackClick={handleBackClick} />
+          <Grid container className="weather-top">
+            <NameBlock name={name} />
+            <CurrentWeatherBlock currentWeather={currentWeather} />
+          </Grid>
+          <div className="weather-bottom">
+            <SevenDayBlock
+              dailyWeatherList={dailyWeatherList}
+              setCurrentWeather={setCurrentWeather}
+            />
           </div>
-        )}
+          <GoogleSearch />
+        </div>
+      )}
       <BackgroundDialog setBackground={setBackground} />
     </div>
   );

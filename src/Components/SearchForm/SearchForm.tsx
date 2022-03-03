@@ -5,24 +5,16 @@ import EditIcon from "@mui/icons-material/Edit";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import { CurrentWeather } from "../../Interfaces/Interface";
-import { fetchCurrentData, fetchOneCallData } from "../../Api";
 import Notification from "../Notification/Notification";
 import "./SearchForm.css";
 
 interface Props {
   name: string;
   setName: Dispatch<SetStateAction<string>>;
-  setCurrentWeather: Dispatch<SetStateAction<CurrentWeather | null>>;
-  setDailyWeatherList: React.Dispatch<React.SetStateAction<CurrentWeather[]>>;
+  updateWeather: (city: string) => Promise<void>;
 }
 
-const SearchForm: React.FC<Props> = ({
-  name,
-  setName,
-  setCurrentWeather,
-  setDailyWeatherList,
-}) => {
+const SearchForm: React.FC<Props> = ({ name, setName, updateWeather }) => {
   const [userInput, setUserInput] = useState<string>("");
   const [nameExist, SetNameExists] = useState<boolean>(name ? true : false);
   const [openNotification, setOpenNotification] = useState<boolean>(false);
@@ -31,16 +23,7 @@ const SearchForm: React.FC<Props> = ({
   const handleSubmitClick = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const currentWeatherData = await fetchCurrentData(userInput);
-      const oneCallData = await fetchOneCallData(
-        currentWeatherData.lat,
-        currentWeatherData.lon,
-        currentWeatherData.city,
-        currentWeatherData.country
-      );
-      // set current weather to first item in the list (current day)
-      setCurrentWeather(oneCallData.dailyData[0]);
-      setDailyWeatherList(oneCallData.dailyData);
+      updateWeather(userInput);
       localStorage.setItem("city", userInput);
       localStorage.setItem("name", name);
     } catch (error: any) {

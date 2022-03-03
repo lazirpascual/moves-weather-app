@@ -7,8 +7,6 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import PersonIcon from "@mui/icons-material/Person";
-import { blue } from "@mui/material/colors";
 import "./BackgroundDialog.css";
 
 const backgroundList = [
