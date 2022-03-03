@@ -23,7 +23,7 @@ const SearchForm: React.FC<Props> = ({ name, setName, updateWeather }) => {
   const handleSubmitClick = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      updateWeather(userInput);
+      await updateWeather(userInput);
       localStorage.setItem("city", userInput);
       localStorage.setItem("name", name);
     } catch (error: any) {

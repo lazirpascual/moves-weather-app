@@ -25,6 +25,14 @@ body {
   margin-top: 1vh;
 }
 
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50%;
+}
+
 @media (max-width: 770px) {
   .start-container {
     margin: 0 4%;

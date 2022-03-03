@@ -9,6 +9,9 @@ import Grid from "@mui/material/Grid";
 import GoogleSearch from "./Components/GoogleSearch/GoogleSearch";
 import Header from "./Components/Header/Header";
 import BackgroundDialog from "./Components/BackgroundDialog/BackgroundDialog";
+// @ts-ignore
+import FillingBottle from "react-cssfx-loading/lib/FillingBottle";
+import { Typography } from "@mui/material";
 import "./App.css";
 
 function App() {
@@ -20,18 +23,25 @@ function App() {
     []
   );
   const [background, setBackground] = useState<string>("");
+  const [isFetching, setIsFetching] = useState<boolean>(true);
 
   const updateWeather = async (city: string) => {
     const currentWeatherData = await fetchCurrentData(city);
-    const oneCallData = await fetchOneCallData(
-      currentWeatherData.lat,
-      currentWeatherData.lon,
-      currentWeatherData.city,
-      currentWeatherData.country
-    );
-    // set current weather to first item in the list (current day)
-    setCurrentWeather(oneCallData.dailyData[0]);
-    setDailyWeatherList(oneCallData.dailyData);
+    if (currentWeatherData) {
+      setIsFetching(true);
+      const oneCallData = await fetchOneCallData(
+        currentWeatherData.lat,
+        currentWeatherData.lon,
+        currentWeatherData.city,
+        currentWeatherData.country
+      );
+      if (oneCallData) {
+        // set current weather to first item in the list (current day)
+        setCurrentWeather(oneCallData.dailyData[0]);
+        setDailyWeatherList(oneCallData.dailyData);
+        setIsFetching(false);
+      }
+    }
   };
 
   useEffect(() => {
@@ -42,7 +52,7 @@ function App() {
 
       try {
         if (city && name) {
-          updateWeather(city);
+          await updateWeather(city);
           setName(name);
         }
         if (background) {
@@ -50,6 +60,7 @@ function App() {
         } else {
           setBackground("https://i.imgur.com/hj2L1tO.jpg");
         }
+        setIsFetching(false);
       } catch (error) {
         console.log(error);
       }
@@ -69,30 +80,41 @@ function App() {
   };
 
   return (
-    <div className="start-container" style={backgroundStyle}>
-      {currentWeather === null ? (
-        <SearchForm
-          name={name}
-          setName={setName}
-          updateWeather={updateWeather}
-        />
+    <div>
+      {isFetching ? (
+        <div className="loading-state">
+          <FillingBottle color="#FF0000" width="100px" height="100px" />
+          <Typography variant="h3" sx={{ marginTop: 10 }}>
+            Loading Weather Data...
+          </Typography>
+        </div>
       ) : (
-        <div>
-          <Header handleBackClick={handleBackClick} />
-          <Grid container className="weather-top">
-            <NameBlock name={name} />
-            <CurrentWeatherBlock currentWeather={currentWeather} />
-          </Grid>
-          <div className="weather-bottom">
-            <SevenDayBlock
-              dailyWeatherList={dailyWeatherList}
-              setCurrentWeather={setCurrentWeather}
+        <div className="start-container" style={backgroundStyle}>
+          {currentWeather === null ? (
+            <SearchForm
+              name={name}
+              setName={setName}
+              updateWeather={updateWeather}
             />
-          </div>
-          <GoogleSearch />
+          ) : (
+            <div>
+              <Header handleBackClick={handleBackClick} />
+              <Grid container className="weather-top">
+                <NameBlock name={name} />
+                <CurrentWeatherBlock currentWeather={currentWeather} />
+              </Grid>
+              <div className="weather-bottom">
+                <SevenDayBlock
+                  dailyWeatherList={dailyWeatherList}
+                  setCurrentWeather={setCurrentWeather}
+                />
+              </div>
+              <GoogleSearch />
+            </div>
+          )}
+          <BackgroundDialog setBackground={setBackground} />
         </div>
       )}
-      <BackgroundDialog setBackground={setBackground} />
     </div>
   );
 }
