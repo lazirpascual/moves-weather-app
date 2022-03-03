@@ -44,6 +44,8 @@ function App() {
 
         if (background) {
           setBackground(background);
+        } else {
+          setBackground("https://i.imgur.com/hj2L1tO.jpg");
         }
       } catch (error) {
         console.log(error);
