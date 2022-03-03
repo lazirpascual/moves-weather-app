@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 24vh;
+  height: 320px;
   width: 7em;
   margin-right: 15px;
   background-color: rgba(45, 53, 80, 0.795);
