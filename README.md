@@ -48,8 +48,8 @@ This is a chrome extension that uses the OpenWeatherMap API to dynamically displ
 - **Planning** <br />
   Before any code was written, adequate planning was performed in order to ensure that the requirements are properly met. To do this, I started by building a wireframe for the user interface. This will include the search page as well as the weather page. Afterwards, I broke the user interface down into a component hierarchy, where I identified all the individual components that would form my application. This made it easier for me to identify which components would be more reusable, allowing the application to be more modular. The mock user interface can be seen on the images below.
   &emsp; <p float="left">
-  <img src="https://i.imgur.com/vhocKlO.png" alt="Weather Page" width="450" height="300"/>
-  <img src="https://i.imgur.com/45MRQbt.png" alt="Search Page" width="315" height="300"/> </p>
+  <img src="https://i.imgur.com/C6Ron7k.png" alt="Weather Page" width="450" height="300"/>
+  <img src="https://i.imgur.com/jj27BgC.png" alt="Search Page" width="315" height="300"/> </p>
   Additionally, I identified all the properties that I needed in my application when fetching from the OpenWeatherMap API. I decided that all these properties would be defined under an interface in TypeScript, which I called CurrentWeather. I created a class diagram to better illustrate this. <br />
   <img src="https://i.imgur.com/o8cb3ht.png" alt="CurrentWeather Interface" width="300" height="400"/>
 - **Development** <br />
@@ -69,8 +69,8 @@ This is a chrome extension that uses the OpenWeatherMap API to dynamically displ
 
 ## 1. Search Page
 
-![preview](https://i.imgur.com/8jxGdP1.png)
+![preview](https://i.imgur.com/zLcYCcD.png)
 
 ## 2. Weather Info Page
 
-![preview](https://i.imgur.com/gtpHGue.png)
+![preview](https://i.imgur.com/XydVVLJ.png)
