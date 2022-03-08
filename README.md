@@ -15,7 +15,7 @@ This is a chrome extension that uses the OpenWeatherMap API to dynamically displ
 
 ## ⚙️ Features
 
-- Search weather data through city or zip code
+- Search weather data through user's choice of city
 - Display current weather data and forecast for the next seven days
 - Clickable panels for the 7-day forecast which displays additional information
 - Search and browse through the Google search engine
@@ -37,8 +37,9 @@ This is a chrome extension that uses the OpenWeatherMap API to dynamically displ
 - [x] Create search page
 - [x] Create weather page (description, current/min/max temp, wind speed, precipitation, humidity)
 - [x] Create functions to fetch from API
-- [x] Fetch from city as well as zip code
 - [x] Add error handling for non-existing cities/zip code
+- [x] Add Google search bar
+- [x] Add customizable background
 - [x] Add responsiveness for all screen sizes
 - [x] Add unit testing for components
 - [x] Finish readme.md
